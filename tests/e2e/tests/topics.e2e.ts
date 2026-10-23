@@ -19,7 +19,7 @@ describe('topics', () => {
   test('creates a topic and switches to it', async ({ screen, browser, app }) => {
     await screen.getByRole('button', '新建课题').tap();
     await expect(browser.locator('.tv-modal')).toBeVisible();
-    // 输入用英文命名：服务端会把名称 slug 化成课题 id，中文会全部塌缩成一个词
+    // 输入用英文命名：服务端把名称 slug 化成课题 id（中文课题名各自的 id 见 topics-cjk.e2e.ts）
     await screen.getByPlaceholder(/例如：Seedance 2\.0/).fill('E2E Smoke Topic');
     await screen.getByPlaceholder(/这个课题收集什么内容/).fill('e2e 创建流程演练');
     await screen.getByRole('button', '创建课题').tap();
